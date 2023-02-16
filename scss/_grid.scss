@@ -1,0 +1,16 @@
+#app{
+    width: 90%;
+    max-width: 124.8rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 581px) {
+    body{
+        overflow-x: hidden;
+    }
+    
+    #app{
+        width: 100%;
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="stylesheet" href="./css/styles.min.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+
+    <header>
+
+      <div class="nav-container">
+
+        <div class="menu-mobile">
+          <img src="./images/icon-menu.svg" alt="Icon menu" onclick="showMenu()">
+        </div>
+
+        <div class="logo">
+          <img src="./images/logo.svg" alt="Logo">
+        </div>
+
+        <nav>
+          <img src="./images/icon-close.svg" class="close-icon" alt="Close icon" onclick="closeElement(navMenu)">
+          <ul class="list-nav">
+            <li class="item-nav">Collections</li>
+            <li class="item-nav">Men</li>
+            <li class="item-nav">Women</li>
+            <li class="item-nav">About</li>
+            <li class="item-nav">Contact</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="profile">
+
+        <div class="cart-container">
+          <img src="./images/icon-cart.svg" alt="Cart Icon" class="icon-cart" onclick="showSumaryCart()">
+
+          <div class="sumary-cart">
+            <div class="title-card">
+              <h3>Cart</h3>
+              <img src="./images/icon-close.svg" alt="Close Icon" onclick="closeElement(sumaryCart)">
+            </div>
+            <ul class="list-cart">
+              <li class="item-cart">
+                <img 
+                src="./images/image-product-1-thumbnail.jpg" 
+                alt="Image cart"
+                class="img-product-cart">
+                <div class="details-cart">
+                  <p>Fall Limited Edition Sneakers</p>
+                  <div class="total-product">
+                    <p class="value-cart">$125,00</p>
+                    <p class="qty-cart">x 3</p>
+                    <p class="total-price"><strong> = $375,00</strong></p>
+                  </div>
+
+                </div>
+                <div class="delete-product">
+                  <img src="./images/icon-delete.svg" alt="Delete Icon">
+                </div>
+              </li>
+            </ul>
+            <div class="container-btn">
+              <button>Checkout</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="avatar-container">
+          <img src="./images/image-avatar.png" class="avatar" alt="Avatar">
+        </div>
+      
+        </div>
+
+    </header>
+
+    <main>
+      <div class="card-product">
+        <div class="card-hero">
+
+        </div>
+        <div class="sub-images">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="Image product">
+          <img src="./images/image-product-2-thumbnail.jpg" alt="">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="">
+          <img src="./images/image-product-4-thumbnail.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="details-product">
+        <div class="description-product">
+          <span class="enterprise">SNEAKERS COMPANY</span>
+          <h1 class="title-product">Fall Limited Edition Sneakers</h1>
+          <p class="description">
+            These low-profile sneakers are your perfect casual wear companion. Featuring a 
+            durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+        </div>
+
+        <div class="price-product">
+          <p class="current-price">$125,00 <span>50%</span> </p>
+          <p class="old-price"><s>$250,00</s></p>
+        </div>
+
+        <div class="cta-product">
+          <div class="wrapper">
+            <img src="./images/icon-minus.svg" alt="Minus iconc">
+            <span>0</span>
+            <img src="./images/icon-plus.svg" alt="Plus icon">
+          </div>
+
+          <button>
+            <img src="./images/icon-cart-button.svg" alt="Icon cart">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </main>
+
+  </div>
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
