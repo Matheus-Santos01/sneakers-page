@@ -1,11 +1,15 @@
 @import 'variables';
 
 header{
+    position: static;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 3.6rem 2.4rem 1rem;
     border-bottom: 1px solid var(--grayish-blue);
+    &.active{
+        position: relative;
+    }
 }
 
 .nav-container{
@@ -42,7 +46,6 @@ header{
     align-items: center;
     gap: 2.4rem;
     .cart-container{
-        position: relative;
         .icon-cart{
             padding: 1rem;
             cursor: pointer;
@@ -58,8 +61,8 @@ header{
     display: none;
     position: absolute;
     z-index: 5;
-    top: 55px;
-    left: -135px;
+    top: 95px;
+    right: 0;
     min-width: 30rem;
     padding: 1rem 1.2rem 2rem;
     box-shadow: 0px 5px 15px rgb(0 0 0 / 50%);
@@ -164,7 +167,6 @@ header{
             }
             nav.active{
                 transform: translateX(0%);
-                
             }
         }
         .profile{
@@ -175,5 +177,10 @@ header{
                 }
             }
         }
+    }
+
+    .sumary-cart{
+        top: 80px;
+        right: -10px;
     }
 }

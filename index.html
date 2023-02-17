@@ -31,7 +31,7 @@
         </div>
 
         <nav>
-          <img src="./images/icon-close.svg" class="close-icon" alt="Close icon" onclick="closeElement(navMenu)">
+          <img src="./images/icon-close.svg" class="close-icon" alt="Close icon" onclick="closeMenu()">
           <ul class="list-nav">
             <li class="item-nav">Collections</li>
             <li class="item-nav">Men</li>
@@ -46,44 +46,43 @@
 
         <div class="cart-container">
           <img src="./images/icon-cart.svg" alt="Cart Icon" class="icon-cart" onclick="showSumaryCart()">
-
-          <div class="sumary-cart">
-            <div class="title-card">
-              <h3>Cart</h3>
-              <img src="./images/icon-close.svg" alt="Close Icon" onclick="closeElement(sumaryCart)">
-            </div>
-            <ul class="list-cart">
-              <li class="item-cart">
-                <img 
-                src="./images/image-product-1-thumbnail.jpg" 
-                alt="Image cart"
-                class="img-product-cart">
-                <div class="details-cart">
-                  <p>Fall Limited Edition Sneakers</p>
-                  <div class="total-product">
-                    <p class="value-cart">$125,00</p>
-                    <p class="qty-cart">x 3</p>
-                    <p class="total-price"><strong> = $375,00</strong></p>
-                  </div>
-
-                </div>
-                <div class="delete-product">
-                  <img src="./images/icon-delete.svg" alt="Delete Icon">
-                </div>
-              </li>
-            </ul>
-            <div class="container-btn">
-              <button>Checkout</button>
-            </div>
-          </div>
         </div>
 
         <div class="avatar-container">
           <img src="./images/image-avatar.png" class="avatar" alt="Avatar">
         </div>
       
-        </div>
+      </div>
 
+      <div class="sumary-cart">
+        <div class="title-card">
+          <h3>Cart</h3>
+          <img src="./images/icon-close.svg" alt="Close Icon" onclick="closeSumaryCart()">
+        </div>
+        <ul class="list-cart">
+          <li class="item-cart">
+            <img 
+            src="./images/image-product-1-thumbnail.jpg" 
+            alt="Image cart"
+            class="img-product-cart">
+            <div class="details-cart">
+              <p>Fall Limited Edition Sneakers</p>
+              <div class="total-product">
+                <p class="value-cart">$125,00</p>
+                <p class="qty-cart">x 3</p>
+                <p class="total-price"><strong> = $375,00</strong></p>
+              </div>
+
+            </div>
+            <div class="delete-product">
+              <img src="./images/icon-delete.svg" alt="Delete Icon">
+            </div>
+          </li>
+        </ul>
+        <div class="container-btn">
+          <button>Checkout</button>
+        </div>
+      </div>
     </header>
 
     <main>
