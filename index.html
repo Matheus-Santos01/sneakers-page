@@ -6,13 +6,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
   <title>Frontend Mentor | E-commerce product page</title>
   <link rel="stylesheet" href="./css/styles.min.css">
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
 
@@ -60,24 +59,6 @@
           <img src="./images/icon-close.svg" alt="Close Icon" onclick="closeSumaryCart()">
         </div>
         <ul class="list-cart">
-          <li class="item-cart">
-            <img 
-            src="./images/image-product-1-thumbnail.jpg" 
-            alt="Image cart"
-            class="img-product-cart">
-            <div class="details-cart">
-              <p>Fall Limited Edition Sneakers</p>
-              <div class="total-product">
-                <p class="value-cart">$125,00</p>
-                <p class="qty-cart">x 3</p>
-                <p class="total-price"><strong> = $375,00</strong></p>
-              </div>
-
-            </div>
-            <div class="delete-product">
-              <img src="./images/icon-delete.svg" alt="Delete Icon">
-            </div>
-          </li>
         </ul>
         <div class="container-btn">
           <button>Checkout</button>
@@ -87,14 +68,14 @@
 
     <main>
       <div class="card-product">
-        <div class="card-hero">
+        <div class="card-hero" onclick="showModalProduct()">
 
         </div>
         <div class="sub-images">
-          <img src="./images/image-product-1-thumbnail.jpg" alt="Image product">
-          <img src="./images/image-product-2-thumbnail.jpg" alt="">
-          <img src="./images/image-product-3-thumbnail.jpg" alt="">
-          <img src="./images/image-product-4-thumbnail.jpg" alt="">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="Image product 1" class="active">
+          <img src="./images/image-product-2-thumbnail.jpg" alt="Image product 2">
+          <img src="./images/image-product-3-thumbnail.jpg" alt="Image product 3">
+          <img src="./images/image-product-4-thumbnail.jpg" alt="Image product 4">
         </div>
       </div>
 
@@ -109,18 +90,21 @@
         </div>
 
         <div class="price-product">
-          <p class="current-price">$125,00 <span>50%</span> </p>
+          <div class="current-price">
+            <p>$125,00 </p>
+            <span>50%</span>
+          </div>
           <p class="old-price"><s>$250,00</s></p>
         </div>
 
         <div class="cta-product">
           <div class="wrapper">
             <img src="./images/icon-minus.svg" alt="Minus iconc">
-            <span>0</span>
+            <span>2</span>
             <img src="./images/icon-plus.svg" alt="Plus icon">
           </div>
 
-          <button>
+          <button onclick="addProductCart(event)">
             <img src="./images/icon-cart-button.svg" alt="Icon cart">
             Add to cart
           </button>
@@ -129,12 +113,46 @@
     </main>
 
   </div>
+
+  <dialog>
+    <div class="content-modal">
+      <div class="close-modal">
+        <img src="./images/icon-close-modal.svg" alt="Icon close" onclick="closeModalProduct()">
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/image-product-1.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/image-product-2.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/image-product-3.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/image-product-4.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="sub-images-modal">
+        <img src="./images/image-product-1-thumbnail.jpg" data-image="0" alt="Image product 1">
+        <img src="./images/image-product-2-thumbnail.jpg" data-image="1" alt="Image product 2">
+        <img src="./images/image-product-3-thumbnail.jpg" data-image="2" alt="Image product 3">
+        <img src="./images/image-product-4-thumbnail.jpg" data-image="3" alt="Image product 4">
+      </div>
+  </dialog>
   
   <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>

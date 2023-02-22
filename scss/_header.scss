@@ -82,6 +82,10 @@ header{
             cursor: pointer;
         }
     }
+    p.empty-message{
+        text-align: center;
+        padding: 2rem;
+    }
     .list-cart{
         margin-top: 1rem;
         .item-cart{
@@ -101,6 +105,11 @@ header{
                     align-items: center;
                     gap: 0.5rem;
                     margin-top: 0.5rem;
+                }
+            }
+            .delete-product{
+                img{
+                    cursor: pointer;
                 }
             }
         }
