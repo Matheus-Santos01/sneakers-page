@@ -134,6 +134,8 @@ header{
     }
     &.active{
         display: block;
+        width: 100%;
+        right: 0;
     }
 }
 
