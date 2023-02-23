@@ -1,11 +1,24 @@
 const sumaryCart = document.querySelector('header .sumary-cart')
+const buttonIconCart = document.querySelector('header .profile .cart-container .icon-cart')
 const closeIconSumary = document.querySelector('.sumary-cart .title-card img')
 const iconMenuMobile = document.querySelector('header .nav-container .menu-mobile')
 const navMenu = document.querySelector('header .nav-container nav')
 const header = document.querySelector('header')
 const modal = document.querySelector('dialog')
 const closeIconModal = document.querySelector('dialog .content-modal .close-modal img')
+const wrapperQty = document.querySelector('main .details-product .cta-product .wrapper')
 let cart = []
+const swiper = new Swiper('.swiper', {
+    keyboard: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    effect: 'fade',
+    fadeEffect: {
+    crossFade: true
+    },
+})
 
 function showSumaryCart(){
     header.classList.toggle('active')
@@ -44,21 +57,6 @@ function changeImageHero(){
 
             productHeroImageUrl = productHeroImage.style.backgroundImage.replace('url("', '').replace('thumbnail', '').replace('")', '')
             urlmageFormated = image.getAttribute('src').replace('-thumbnail', '')
-            if(productHeroImageUrl === urlmageFormated){
-                image.classList.toggle('active')
-                
-                // const containerSubImages = document.querySelector('main .card-product .sub-images')
-                // for(let i = 0; i < containerSubImages.children.length; i++){
-                //     if(containerSubImages.children[i].classList.contains('active')){
-                //         console.log('encontrei')
-                //         containerSubImages.children[i].classList.remove('active')
-                //     }
-                // }
-
-            }else{
-                image.classList.remove('active')
-                console.log('diferente')
-            }
         })
     }
 }
@@ -68,12 +66,12 @@ function changeImageModal(){
     for(let imageModal of subImagesModal){
         imageModal.addEventListener('click', () => {
             const indexImage = imageModal.dataset.image
-            swiper.slideTo(indexImage, 500, false)
+            swiper[1].slideTo(indexImage, 500, false)
         })
     }
 }
 
-const addProductCart = (event) => {
+function addProductCart(event){
     event.preventDefault()
 
     if(cart.length > 0 ){
@@ -92,7 +90,9 @@ const addProductCart = (event) => {
         quantityProduct: Number(quantityProduct),
         totalValue: totalValue
     })
-    renderCart()
+
+    renderCountCart()
+    renderItemCart()
     showSumaryCart()
 }
 
@@ -101,11 +101,31 @@ function deleteProductCart(event){
     const foundProduct = cart.find(product => product.idProduct === idProduct)
 
     cart.pop(foundProduct)
-    renderCart()
+
+    renderCountCart()
+    renderItemCart()
     closeSumaryCart()
 }
 
-function renderCart(){
+function updateQtyProduct(action){
+    let qtyProduct =  document.querySelector('main .details-product .cta-product .wrapper span').textContent
+    
+    if(action === 'decrease'){
+        if(qtyProduct === '1' ){
+            alert('1 é a quantidade mínima')
+            return
+        }
+        let newQtyProduct = parseInt(qtyProduct) - 1
+        renderWrapperQuantity(newQtyProduct) 
+    }
+
+    if(action === 'increase'){
+        let newQtyProduct = parseInt(qtyProduct) + 1
+        renderWrapperQuantity(newQtyProduct)
+    }
+}
+
+function renderItemCart(){
     const itemCart = document.querySelector('header .sumary-cart .list-cart')
 
     if(cart.length > 0){
@@ -137,19 +157,37 @@ function renderCart(){
     }
 }
 
-iconMenuMobile.addEventListener('click', showMenu)
+function renderCountCart(){
+    if(cart.length < 1 ){
+        buttonIconCart.classList.remove('active')
+        return
+    }else{
+        buttonIconCart.classList.add('active')
+        buttonIconCart.setAttribute('data-count', cart[0].quantityProduct)
+    }
+
+}
+
+function renderWrapperQuantity(qty){
+    let quantity = qty
+
+    wrapperQty.innerHTML = `
+        <div class="wrapper">
+            <button class="btn-minus-qty" onclick="updateQtyProduct('decrease')">
+                <img src="./images/icon-minus.svg" alt="Minus iconc">
+            </button>
+            <span>${quantity}</span>
+            <button class="btn-plus-qty" onclick="updateQtyProduct('increase')">
+                <img src="./images/icon-plus.svg" alt="Plus icon">
+            </button>
+        </div>            
+    `
+
+}
+
+renderCountCart()
+renderWrapperQuantity(1)
 changeImageHero()
 changeImageModal()
-renderCart()
-
-const swiper = new Swiper('.swiper', {
-    keyboard: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    effect: 'fade',
-    fadeEffect: {
-    crossFade: true
-    },
-  });
+iconMenuMobile.addEventListener('click', showMenu)
+buttonIconCart.addEventListener('click', showSumaryCart)

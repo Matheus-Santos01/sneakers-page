@@ -10,7 +10,8 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
   />
-  <title>Frontend Mentor | E-commerce product page</title>
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <title>Sneakers page</title>
   <link rel="stylesheet" href="./css/styles.min.css">
 </head>
 <body>
@@ -44,11 +45,13 @@
       <div class="profile">
 
         <div class="cart-container">
-          <img src="./images/icon-cart.svg" alt="Cart Icon" class="icon-cart" onclick="showSumaryCart()">
+          <button class="icon-cart" data-count="">
+            <img src="./images/icon-cart.svg" alt="Cart Icon">
+          </button>
         </div>
 
         <div class="avatar-container">
-          <img src="./images/image-avatar.png" class="avatar" alt="Avatar">
+          <img src="./images/avatar.png" class="avatar" alt="Avatar">
         </div>
       
       </div>
@@ -68,14 +71,38 @@
 
     <main>
       <div class="card-product">
-        <div class="card-hero" onclick="showModalProduct()">
-
+        <div class="v-desktop">
+          <div class="card-hero" onclick="showModalProduct()">
+  
+          </div>
+          <div class="sub-images">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="Image product 1" class="active">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="Image product 2">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="Image product 3">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="Image product 4">
+          </div>
         </div>
-        <div class="sub-images">
-          <img src="./images/image-product-1-thumbnail.jpg" alt="Image product 1" class="active">
-          <img src="./images/image-product-2-thumbnail.jpg" alt="Image product 2">
-          <img src="./images/image-product-3-thumbnail.jpg" alt="Image product 3">
-          <img src="./images/image-product-4-thumbnail.jpg" alt="Image product 4">
+
+        <div class="v-mobile">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/image-product-1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/image-product-2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/image-product-3.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/image-product-4.jpg" alt="">
+                </div>
+            </div>
+  
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
         </div>
       </div>
 
@@ -99,9 +126,13 @@
 
         <div class="cta-product">
           <div class="wrapper">
-            <img src="./images/icon-minus.svg" alt="Minus iconc">
+            <button class="btn-minus-qty" onclick="updateQtyProduct('decrease')" disabled="">
+              <img src="./images/icon-minus.svg" alt="Minus iconc">
+            </button>
             <span>2</span>
-            <img src="./images/icon-plus.svg" alt="Plus icon">
+            <button class="btn-plus-qty" onclick="updateQtyProduct('increase')">
+              <img src="./images/icon-plus.svg" alt="Plus icon">
+            </button>
           </div>
 
           <button onclick="addProductCart(event)">
@@ -146,11 +177,6 @@
         <img src="./images/image-product-4-thumbnail.jpg" data-image="3" alt="Image product 4">
       </div>
   </dialog>
-  
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="./js/main.js"></script>

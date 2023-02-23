@@ -47,8 +47,29 @@ header{
     gap: 2.4rem;
     .cart-container{
         .icon-cart{
+            background-color: transparent;
+            border: none;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 1rem;
             cursor: pointer;
+            &.active::before{
+                content: attr(data-count);
+                background-color: var(--orange);
+                font-size: 1.2rem;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.5rem;
+                height: 1.5rem;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                border-radius: 50%;
+            }
         }
     }
     .avatar{
@@ -134,8 +155,6 @@ header{
     }
     &.active{
         display: block;
-        width: 100%;
-        right: 0;
     }
 }
 
@@ -161,6 +180,7 @@ header{
                 padding-left: 2.4rem;
                 background-color: var(--white);
                 transform: translateX(-150%);
+                z-index: 10;
                 transition: all 500ms ease-in;
                 .close-icon{
                     display: block;
@@ -190,8 +210,9 @@ header{
         }
     }
 
-    .sumary-cart{
+    .sumary-cart.active{
         top: 80px;
-        right: -10px;
+        right: 0;
+        width: 100%;
     }
 }
